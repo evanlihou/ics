@@ -1,0 +1,47 @@
+CREATE TABLE `Inventory100` (
+ `id` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT COMMENT 'Barcode',
+ `model` text NOT NULL,
+ `number` int(2) DEFAULT NULL,
+ `category` text NOT NULL,
+ `available` tinyint(1) NOT NULL DEFAULT '1',
+ `inDate` date DEFAULT NULL,
+ `inPd` text,
+ `outTo` int(5) DEFAULT NULL,
+ `notes` text,
+ `history` longtext,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=100000 DEFAULT CHARSET=latin1
+
+CREATE TABLE `Requests` (
+ `rid` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
+ `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+ `requestedBy` int(5) NOT NULL,
+ `name` varchar(40) NOT NULL DEFAULT '',
+ `status` varchar(40) NOT NULL DEFAULT 'new',
+ `proj` varchar(80) NOT NULL DEFAULT '',
+ `projType` varchar(40) NOT NULL DEFAULT '',
+ `dateOut` date NOT NULL,
+ `pdOut` varchar(30) NOT NULL DEFAULT '',
+ `dateIn` date NOT NULL,
+ `pdIn` varchar(30) NOT NULL DEFAULT '',
+ `camera` varchar(40) NOT NULL DEFAULT '',
+ `tripod` varchar(40) NOT NULL DEFAULT '',
+ `lights` varchar(40) NOT NULL DEFAULT '',
+ `cStands` int(2) NOT NULL,
+ `extensionCords` int(2) NOT NULL,
+ `mic` varchar(40) NOT NULL DEFAULT '',
+ `recorder` varchar(40) NOT NULL DEFAULT '',
+ `accessories` varchar(40) NOT NULL DEFAULT '',
+ `xlr` int(2) NOT NULL,
+ `notes` text,
+ PRIMARY KEY (`rid`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1
+
+CREATE TABLE `Users` (
+ `uid` int(5) unsigned zerofill NOT NULL AUTO_INCREMENT,
+ `name` varchar(40) NOT NULL DEFAULT '',
+ `user` varchar(30) NOT NULL DEFAULT '',
+ `pass` varchar(100) NOT NULL DEFAULT '',
+ `groupId` tinyint(1) NOT NULL DEFAULT '1',
+ PRIMARY KEY (`uid`)
+) ENGINE=InnoDB AUTO_INCREMENT=99902 DEFAULT CHARSET=latin1
